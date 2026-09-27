@@ -260,6 +260,7 @@ select option { background: #120e0c; }
 .br-passive svg { flex: none; width: 22px; height: 22px; color: var(--gold2); filter: drop-shadow(0 0 5px rgba(227,184,102,.6)); }
 .br-passive b { display: block; font-size: 13px; color: var(--gold2); margin-bottom: 2px; }
 .br-passive span { font-size: 12px; line-height: 1.5; color: #d6cab6; }
+.br-passive .hk { display: block; margin-top: 3px; color: var(--muted); }
 .br-skills { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; }
 .node { display: flex; flex-direction: column; align-items: center; gap: 5px; font-size: 12px; font-weight: 600; text-align: center; color: #e3d6c0; }
 .node svg { width: 44px; height: 44px; padding: 9px; color: var(--gold2); border: 1px solid var(--line2); background: radial-gradient(circle at 50% 35%, #2e2219, #0a0808); box-shadow: inset 0 0 10px rgba(0,0,0,.8); }
@@ -386,6 +387,14 @@ select option { background: #120e0c; }
 .loot-feed { right: 16px; bottom: 130px; display: flex; flex-direction: column; gap: 5px; align-items: flex-end; }
 .loot { font-size: 13px; font-weight: 600; padding: 7px 14px 7px 36px; background: linear-gradient(270deg, rgba(10,8,8,.88), rgba(10,8,8,.6) 70%, transparent); border-right: 2px solid var(--line2); animation: slideIn .3s ease-out; transition: opacity .6s, transform .6s; }
 .loot.out { opacity: 0; transform: translateX(20px); }
+.gain-feed { right: 16px; bottom: 330px; display: flex; flex-direction: column; gap: 6px; align-items: flex-end; }
+.gain { min-width: 170px; padding: 8px 12px; background: linear-gradient(270deg, rgba(10,8,8,.9), rgba(10,8,8,.65)); border-right: 2px solid var(--gold); animation: slideIn .3s ease-out; transition: opacity .6s, transform .6s; }
+.gain.out { opacity: 0; transform: translateX(20px); }
+.gain h5 { margin: 0 0 4px; font-size: 12px; font-weight: 800; letter-spacing: .1em; color: var(--gold2); }
+.gain ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 1px; }
+.gain li { display: flex; justify-content: space-between; gap: 14px; font-size: 12px; color: #d8ccb6; }
+.gain li b { font-family: var(--latin), var(--font); font-weight: 800; }
+.gain li.up b { color: #7dffb0; } .gain li.down b { color: #ff8a7a; }
 .loot em { font-style: normal; color: var(--muted); font-size: 11px; margin-left: 4px; }
 .lr { font-weight: 800; margin-right: 4px; }
 .loot .lg svg { width: 16px; height: 16px; margin-right: 6px; vertical-align: -3px; }
