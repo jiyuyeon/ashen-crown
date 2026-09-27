@@ -357,7 +357,7 @@ select option { background: #120e0c; }
 .pbar .hp { background: linear-gradient(180deg, #9ff2b8, #2f9a55 60%, #1a5a30); }
 .pbar .sh { background: rgba(255,230,160,.8); height: 2px; }
 .rv { font-size: 11px; color: #ff9a8a; margin-top: 3px; }
-.diff-tag { top: 198px; right: 18px; width: 170px; text-align: center; font-size: 12px; font-weight: 700; letter-spacing: .15em; color: #d8c7a8; text-shadow: 0 1px 3px #000; }
+.diff-tag { top: 198px; right: 18px; width: 170px; text-align: center; font-size: 12px; font-weight: 700; letter-spacing: .03em; white-space: nowrap; color: #d8c7a8; text-shadow: 0 1px 3px #000; }
 .diff-tag b { font-family: var(--latin); font-size: 15px; color: #ffb87a; }
 .story { margin: 10px 0 4px; padding: 12px 16px; font-size: 14px; line-height: 1.8; color: #e8dcc8; background: rgba(0,0,0,.35); border-left: 2px solid var(--gold); }
 .unlock { margin: 6px 0 0; text-align: center; font-size: 14px; font-weight: 800; letter-spacing: .15em; color: var(--gold2); text-shadow: 0 0 12px rgba(255,190,90,.6); }
