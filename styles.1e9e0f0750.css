@@ -69,7 +69,7 @@ select option { background: #120e0c; }
 .logo { display: flex; flex-direction: column; line-height: 1; }
 .logo-en { font-family: var(--display); font-weight: 700; font-size: clamp(56px, 5.6vw, 80px); letter-spacing: .12em; margin-right: -.12em; white-space: nowrap; background: var(--gild); -webkit-background-clip: text; background-clip: text; color: transparent; filter: drop-shadow(0 0 22px rgba(255,130,50,.45)) drop-shadow(0 4px 3px #000); padding: var(--s1) 0; }
 .logo-ko { font-family: var(--display); font-weight: 500; font-size: clamp(14px, 1.4vw, 17px); letter-spacing: .9em; margin-right: -.9em; color: var(--gold); margin-top: var(--s3); padding-left: .2em; text-shadow: 0 0 12px rgba(227,184,102,.4); }
-.logo::after { content: ''; height: 1px; margin-top: var(--s5); background: linear-gradient(90deg, var(--gold), rgba(227,184,102,.25) 60%, transparent); }
+.logo::after { content: ''; height: 1px; margin-top: var(--s4); background: linear-gradient(90deg, var(--gold), rgba(227,184,102,.25) 60%, transparent); }
 
 /* loading */
 .loading { flex-direction: column; gap: var(--s6); background: radial-gradient(ellipse at center, #1f140e, #050407 70%); }
@@ -81,7 +81,7 @@ select option { background: #120e0c; }
 
 /* ---------- menu ---------- */
 .menu { justify-content: flex-start; align-items: stretch; padding: 0; background: linear-gradient(90deg, rgba(5,4,8,.94) 0%, rgba(5,4,8,.8) 34%, rgba(5,4,8,0) 60%); }
-.menu-left { width: min(520px, 100%); padding: var(--s7) var(--s7) var(--s6); display: flex; flex-direction: column; gap: var(--s5); overflow-y: auto; animation: rise .8s ease-out both; }
+.menu-left { width: min(520px, 100%); padding: var(--s6) var(--s7) var(--s5); display: flex; flex-direction: column; gap: var(--s4); overflow-y: auto; animation: rise .8s ease-out both; }
 .tagline { color: #cdbfa8; font-size: 15px; line-height: 1.85; margin: 0; }
 .hero { display: contents; }
 .classes { display: grid; grid-template-columns: repeat(5, 1fr); gap: var(--s2); }
@@ -141,8 +141,12 @@ select option { background: #120e0c; }
 .join { display: grid; grid-template-columns: 1fr auto; gap: var(--s2); }
 .join input { font-family: var(--latin), var(--font); text-transform: uppercase; letter-spacing: .4em; text-align: center; font-weight: 700; }
 .sub { display: flex; justify-content: center; gap: var(--s5); margin-top: var(--s2); }
-/* shared footer of the left panel: chapter and start buttons, set apart from the hero above */
-.menu-left .actions { margin-top: var(--s2); padding-top: var(--s5); border-top: 1px solid; border-image: linear-gradient(90deg, transparent, rgba(227,184,102,.4), transparent) 1; }
+/* left panel: title and prologue at the top; the hero (name down to skills) and the links sit at the bottom */
+.menu .hero .ci-head { margin-top: auto; }
+.menu-left .sub { justify-content: flex-start; margin-top: 0; }
+/* start group (chapter, solo, world, code) at the bottom centre, clear of the left panel */
+.menu-play { position: absolute; bottom: var(--s7); left: max(50%, calc(min(520px, 100%) + var(--s5) + 190px)); translate: -50% 0; isolation: isolate; width: min(380px, calc(100% - 2 * var(--s5))); animation: rise .8s .1s ease-out both; }
+.menu-play::before { content: ''; position: absolute; inset: -80px -120px -48px; z-index: -1; pointer-events: none; background: radial-gradient(ellipse at 50% 60%, rgba(5,4,8,.78), rgba(5,4,8,.45) 45%, transparent 72%); }
 .credits { position: fixed; bottom: var(--s3); right: var(--s4); font-size: 11px; color: #6e665c; }
 
 /* hero block: labelled actions under the selected hero */
@@ -612,6 +616,8 @@ select option { background: #120e0c; }
   .menu { background: rgba(5,4,8,.8); }
   .menu { flex-direction: column; overflow-y: auto; }
   .menu-left { width: 100%; overflow: visible; padding: var(--s6) var(--s5); }
+  .menu-play { position: static; translate: none; width: auto; padding: 0 var(--s5) var(--s7); }
+  .menu-play::before { display: none; }
   .hero-actions { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .hero-actions span { display: none; }
   .credits { position: static; padding: 0 var(--s5) var(--s5); }
