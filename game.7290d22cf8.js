@@ -4566,8 +4566,6 @@ uniform float uRegionOn[5];
         <div class="logo"><span class="logo-en">ARKAS</span><span class="logo-ko">\uC544\uB974\uCE74\uC2A4</span></div>
         <p class="tagline">${Rf}</p>
         <div class="hero">${op(qg)}</div>
-      </div>
-      <div class="menu-play">
         <div class="actions">
           ${ap(oe.difficulty,oe.maxDifficulty,"diff")}
           <button class="btn primary big" data-act="solo">\uD63C\uC790 \uC785\uC7A5</button>
