@@ -81,7 +81,6 @@ select option { background: #120e0c; }
 
 /* ---------- menu ---------- */
 .menu { justify-content: flex-start; align-items: stretch; padding: 0; background: linear-gradient(90deg, rgba(5,4,8,.94) 0%, rgba(5,4,8,.8) 34%, rgba(5,4,8,0) 60%); }
-.menu-left { width: min(520px, 100%); padding: var(--s6) var(--s7) var(--s5); display: flex; flex-direction: column; gap: var(--s4); overflow-y: auto; animation: rise .8s ease-out both; }
 .tagline { color: #cdbfa8; font-size: 15px; line-height: 1.85; margin: 0; }
 .hero { display: contents; }
 .classes { display: grid; grid-template-columns: repeat(5, 1fr); gap: var(--s2); }
@@ -141,12 +140,13 @@ select option { background: #120e0c; }
 .join { display: grid; grid-template-columns: 1fr auto; gap: var(--s2); }
 .join input { font-family: var(--latin), var(--font); text-transform: uppercase; letter-spacing: .4em; text-align: center; font-weight: 700; }
 .sub { display: flex; justify-content: center; gap: var(--s5); margin-top: var(--s2); }
-/* camp home: title top left with the camp scene under it; right panel = hero on top, chapter and
-   entry at the bottom; links and credits along the bottom left */
+/* camp home: title top left with the camp scene under it; the right panel centres the hero and,
+   set apart below it by extra space, the chapter and entry buttons; links and credits bottom left */
 .menu.home { justify-content: flex-end; background: radial-gradient(ellipse 60% 55% at 0% 0%, rgba(5,4,8,.85), transparent 70%), linear-gradient(270deg, rgba(5,4,8,.95) 0%, rgba(5,4,8,.82) 30%, rgba(5,4,8,0) 52%); }
 .menu-title { position: absolute; top: var(--s6); left: var(--s7); width: min(460px, 42vw); display: flex; flex-direction: column; gap: var(--s4); animation: rise .8s ease-out both; }
 .menu-right { width: min(520px, 100%); height: 100%; padding: var(--s5) var(--s7) var(--s5) var(--s6); display: flex; flex-direction: column; gap: var(--s5); overflow-y: auto; animation: rise .8s .1s ease-out both; }
-.menu-right .actions { margin-top: auto; }
+.mr-inner { margin: auto 0; display: flex; flex-direction: column; gap: var(--s5); }
+.menu-right .actions { margin-top: var(--s6); }
 .menu-right .diff-pick { gap: var(--s1); padding: 0 0 var(--s2); }
 .menu-right .dp-main b { font-size: 56px; min-width: 88px; }
 .menu-right .diff-pick .dch { font-size: 22px; }
@@ -155,7 +155,6 @@ select option { background: #120e0c; }
 .menu-right .kit { padding-top: var(--s3); }
 .menu-right .ci-spec { margin-bottom: var(--s3); }
 .menu-right .jl-num b { font-size: 36px; }
-.menu-right .join { grid-template-columns: auto minmax(0, 1fr) auto; }
 .menu-foot { position: absolute; left: var(--s7); bottom: var(--s4); display: flex; align-items: center; gap: var(--s5); }
 .menu-foot .sub { margin: 0; }
 .menu-foot .credits { position: static; }
@@ -217,17 +216,18 @@ select option { background: #120e0c; }
 .tabs button.on { color: #fff0d6; text-shadow: 0 0 14px rgba(255,170,90,.45); box-shadow: inset 0 -2px 0 var(--gold); }
 .tab-party, .tab-char { display: flex; flex-direction: column; gap: var(--s5); }
 .tab-party.hidden, .tab-char.hidden { display: none; }
-.screen.lobby { justify-content: flex-start; align-items: stretch; padding: 0; pointer-events: none; background: linear-gradient(90deg, rgba(5,4,8,.94) 0%, rgba(5,4,8,.8) 30%, rgba(5,4,8,0) 50%); }
-.lobby-left { pointer-events: auto; width: min(480px, 100%); padding: var(--s6) var(--s6) var(--s5); display: flex; flex-direction: column; gap: var(--s4); overflow-y: auto; animation: rise .5s ease-out both; }
-.lobby-left h2 { margin: 0; font-family: var(--display); font-weight: 600; font-size: 38px; letter-spacing: .06em; background: var(--gild); -webkit-background-clip: text; background-clip: text; color: transparent; filter: drop-shadow(0 2px 2px #000); }
+.screen.lobby { justify-content: flex-end; align-items: stretch; padding: 0; pointer-events: none; background: radial-gradient(ellipse 50% 40% at 0% 0%, rgba(5,4,8,.8), transparent 70%), linear-gradient(270deg, rgba(5,4,8,.95) 0%, rgba(5,4,8,.82) 30%, rgba(5,4,8,0) 50%); }
+.lobby-panel { pointer-events: auto; width: min(520px, 100%); padding: var(--s6) var(--s7) var(--s5) var(--s6); display: flex; flex-direction: column; gap: var(--s4); overflow-y: auto; animation: rise .5s ease-out both; }
+.lobby-title { pointer-events: auto; gap: var(--s3); }
+.lobby-title h2 { margin: 0; font-family: var(--display); font-weight: 600; font-size: 38px; letter-spacing: .06em; background: var(--gild); -webkit-background-clip: text; background-clip: text; color: transparent; filter: drop-shadow(0 2px 2px #000); }
 .lobby .codebox b { font-size: 32px; padding-left: 0; }
 .lobby .note { margin: 0; font-size: 13px; line-height: 1.7; }
 .lobby .row { margin-top: 0; justify-content: stretch; }
 .lobby .row .btn { flex: 1; }
 .chat-slot { flex: none; height: 200px; display: flex; }
 /* lobby, like the camp: world name and tabs on top, chat at the bottom, the open tab centred between */
-.lobby-left .tab-party, .lobby-left .tab-char { margin: auto 0; }
-.lobby-hint { position: fixed; right: var(--s5); bottom: var(--s5); margin: 0; font-size: 13px; color: #cdbfa8; text-shadow: 0 1px 3px #000; }
+.lobby-panel .tab-party, .lobby-panel .tab-char { margin: auto 0; }
+.lobby-hint { position: fixed; left: var(--s7); bottom: var(--s4); margin: 0; font-size: 13px; color: #cdbfa8; text-shadow: 0 1px 3px #000; }
 .lobby-hint kbd { margin-right: var(--s1); }
 
 /* chat */
@@ -659,7 +659,9 @@ select option { background: #120e0c; }
   .h-top { width: 86vw; top: 140px; }
   .menu { background: rgba(5,4,8,.8); }
   .menu { flex-direction: column; overflow-y: auto; }
-  .menu-left { width: 100%; overflow: visible; padding: var(--s6) var(--s5); }
+  .screen.lobby { flex-direction: column; justify-content: flex-start; overflow-y: auto; pointer-events: auto; background: rgba(5,4,8,.8); }
+  .lobby-panel { width: 100%; overflow: visible; padding: var(--s5); }
+  .lobby-hint { display: none; }
   .menu.home { background: rgba(5,4,8,.8); }
   .menu-title { position: static; width: auto; padding: var(--s6) var(--s5) 0; }
   .menu-right { width: 100%; height: auto; overflow: visible; padding: var(--s5); }
