@@ -533,6 +533,13 @@ select option { background: #120e0c; }
 .dt-btns { display: flex; gap: var(--s3); }
 .dt-btns:empty { display: none; }
 .dt-btns .btn:disabled { opacity: .45; cursor: default; }
+.dt-watch { display: flex; align-items: center; gap: var(--s3); }
+.dt-watch:empty { display: none; }
+.dt-watch span { font-size: 13px; color: #d8ccb6; text-shadow: 0 1px 3px #000; }
+.dt-watch b { font-weight: 700; color: #fff0d6; }
+/* watching a party member: a compact strip at the top instead of the centred panel */
+.death.watching { top: 110px; transform: translate(-50%, 0); width: auto; max-width: 92vw; padding: var(--s3) var(--s6); gap: var(--s2); background: radial-gradient(ellipse at center, rgba(6,4,8,.82), rgba(6,4,8,.5) 60%, transparent 80%); }
+.death.watching .dt-title, .death.watching .dt-ring, .death.watching .dt-help { display: none; }
 .dt-help { max-width: 400px; margin: var(--s2) 0 0; font-size: 12px; line-height: 1.7; color: var(--muted); text-shadow: 0 1px 3px #000; }
 .loot-feed { right: var(--s4); bottom: 130px; display: flex; flex-direction: column; gap: var(--s1); align-items: flex-end; }
 .loot { font-size: 13px; font-weight: 400; padding: 7px 14px 7px 36px; background: linear-gradient(270deg, rgba(10,8,8,.88), rgba(10,8,8,.6) 70%, transparent); animation: slideIn .3s ease-out; transition: opacity .6s, transform .6s; }
