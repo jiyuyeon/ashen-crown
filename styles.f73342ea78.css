@@ -156,6 +156,17 @@ select option { background: #120e0c; }
 .tag.me { margin-left: 4px; }
 .spinner { width: 30px; height: 30px; border: 2px solid var(--gold); box-shadow: 0 0 16px rgba(227,184,102,.5), inset 0 0 10px rgba(227,184,102,.4); animation: spin 1.6s linear infinite; margin: 10px auto 18px; }
 
+/* first launch: carve a name on the gravestone */
+.nick { display: flex; flex-direction: column; gap: 12px; margin-top: 8px; }
+.nick-q { margin: 0; font-family: var(--display); font-size: 30px; color: #fff0d6; text-shadow: 0 0 18px rgba(255,150,70,.35), 0 2px 3px #000; }
+.nick input { font-family: var(--display); font-weight: 400; font-size: 28px; letter-spacing: .08em; text-align: center; padding: 14px; background: linear-gradient(180deg, rgba(40,36,34,.9), rgba(16,14,14,.95)); border-bottom: 2px solid var(--gold); box-shadow: inset 0 3px 14px rgba(0,0,0,.8); }
+.nick input.bad { border-bottom-color: #ff6a50; }
+.nick-err { margin: -4px 0 0; min-height: 16px; font-size: 12px; color: #ff8a7a; }
+.nick .note { margin: 0; }
+.lobby-nick { display: flex; align-items: center; gap: 12px; }
+.lobby-nick span { flex: none; font-size: 12px; font-weight: 700; letter-spacing: .2em; color: var(--gold); }
+.lobby-nick input { flex: 1; min-width: 0; font-size: 15px; padding: 8px 12px; }
+
 /* lobby: party column docked left, the world stays clickable on the right */
 .screen.lobby { justify-content: flex-start; align-items: stretch; padding: 0; pointer-events: none; background: linear-gradient(90deg, rgba(5,4,8,.94) 0%, rgba(5,4,8,.8) 30%, rgba(5,4,8,0) 50%); }
 .lobby-left { pointer-events: auto; width: min(440px, 100%); padding: 32px 32px 24px; display: flex; flex-direction: column; gap: 14px; overflow-y: auto; animation: rise .5s ease-out both; }
@@ -215,6 +226,26 @@ select option { background: #120e0c; }
 .li { display: flex; justify-content: space-between; align-items: center; padding: 9px 14px; border-left: 3px solid var(--rc); background: linear-gradient(90deg, color-mix(in srgb, var(--rc) 18%, transparent), rgba(0,0,0,.3)); }
 .li b { color: var(--rc); font-size: 14px; font-weight: 700; text-shadow: 0 0 10px color-mix(in srgb, var(--rc) 50%, transparent); }
 .li em { font-style: normal; font-size: 12px; color: var(--muted); }
+
+/* ---------- portal transition: the next chapter's key visual ---------- */
+.portal-screen { position: fixed; inset: 0; z-index: 40; display: flex; align-items: flex-end; background: #000; animation: psIn .5s ease-out both; }
+.portal-screen.out { animation: psOut .6s ease-in both; }
+.ps-art { position: absolute; inset: 0; background-size: cover; background-position: center; animation: kenburns calc(var(--dur) + 1s) linear both; }
+.ps-art::after { content: ''; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(0,0,0,.92) 0%, rgba(0,0,0,.5) 35%, transparent 60%), radial-gradient(ellipse at center, transparent 50%, rgba(0,0,0,.6)); }
+.ps-info { position: relative; width: min(760px, 100%); padding: 0 56px 64px; }
+.ps-info.end { margin: auto; text-align: center; padding-bottom: 0; }
+.ps-num { font-size: 13px; font-weight: 700; letter-spacing: .6em; color: var(--gold); }
+.ps-info h2 { margin: 8px 0 12px; font-family: var(--display); font-weight: 400; font-size: 64px; background: var(--gild); -webkit-background-clip: text; background-clip: text; color: transparent; filter: drop-shadow(0 3px 4px #000); }
+.ps-info p { margin: 0 0 12px; max-width: 560px; font-size: 16px; line-height: 1.8; color: #e8dcc8; text-shadow: 0 2px 6px #000; }
+.ps-info.end p { margin: 0 auto 12px; }
+.ps-info em { font-style: normal; font-size: 12px; color: var(--muted); }
+.ps-bar { width: 240px; height: 2px; margin-top: 22px; background: rgba(255,255,255,.12); }
+.ps-info.end .ps-bar { margin: 22px auto 0; }
+.ps-bar i { display: block; height: 100%; background: var(--gold2); box-shadow: 0 0 8px var(--gold); animation: psBar var(--dur) linear both; }
+@keyframes kenburns { from { transform: scale(1.02); } to { transform: scale(1.12) translate(-1.5%, -1%); } }
+@keyframes psBar { from { width: 0; } to { width: 100%; } }
+@keyframes psIn { from { opacity: 0; } }
+@keyframes psOut { to { opacity: 0; } }
 
 /* ---------- look editor: docked left, the hero stays visible on the right ---------- */
 .modal.side { justify-content: flex-start; background: linear-gradient(90deg, rgba(4,3,6,.8), rgba(4,3,6,0) 45%); pointer-events: none; }
@@ -401,6 +432,19 @@ select option { background: #120e0c; }
 .chapter-card.show { opacity: 1; }
 .cc-num { font-size: 14px; font-weight: 700; letter-spacing: .6em; color: var(--gold); }
 .cc-name { font-family: var(--display); font-size: 58px; margin-top: 6px; background: var(--gild); -webkit-background-clip: text; background-clip: text; color: transparent; filter: drop-shadow(0 0 20px rgba(255,130,50,.45)) drop-shadow(0 3px 3px #000); }
+.cc-hint { margin: 10px auto 0; max-width: 520px; font-size: 13px; line-height: 1.6; color: var(--gold2); text-shadow: 0 2px 6px #000; }
+.cc-hint:empty { display: none; }
+.cine-bars { inset: 0; pointer-events: none; }
+.cine-bars i { position: absolute; left: 0; right: 0; height: 11vh; background: #000; transition: transform .6s cubic-bezier(.2,.8,.2,1); }
+.cine-bars i:first-child { top: 0; transform: translateY(-100%); }
+.cine-bars i:last-child { bottom: 0; transform: translateY(100%); }
+#hud.cine .cine-bars i { transform: none; }
+#hud > * { transition: opacity .4s; }
+#hud.cine > *:not(.cine-bars):not(.boss-intro):not(.chapter-card):not(.dmg-layer) { opacity: 0; pointer-events: none; }
+.portal-prompt { top: 150px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 14px 40px; pointer-events: auto; text-align: center; background: radial-gradient(ellipse at center, rgba(20,8,30,.85), transparent 75%); }
+.portal-prompt b { font-family: var(--display); font-weight: 400; font-size: 24px; color: #e6d0ff; text-shadow: 0 0 14px rgba(170,110,255,.7); }
+.portal-prompt span { font-size: 13px; color: #d8ccb6; }
+.portal-prompt .btn { margin-top: 4px; }
 .cc-text { margin: 12px auto 0; max-width: 520px; font-size: 15px; line-height: 1.8; color: #e3d6c0; text-shadow: 0 2px 6px #000; }
 .boss-intro { inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; opacity: 0; background: linear-gradient(180deg, transparent 30%, rgba(0,0,0,.65) 50%, transparent 70%); transition: opacity .6s; }
 .boss-intro.show { opacity: 1; }
