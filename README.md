@@ -1,4 +1,4 @@
-# 잿빛 왕관 (ASHEN CROWN)
+# 아르카스 (ARKAS)
 
 플레이: https://jiyuyeon.github.io/ashen-crown/
 
