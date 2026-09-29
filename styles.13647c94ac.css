@@ -503,7 +503,7 @@ select option { background: #120e0c; }
 .cine-bars i:last-child { bottom: 0; transform: translateY(100%); }
 #hud.cine .cine-bars i { transform: none; }
 #hud > * { transition: opacity .4s; }
-#hud.cine > *:not(.cine-bars):not(.boss-intro):not(.chapter-card):not(.dmg-layer) { opacity: 0; pointer-events: none; }
+#hud.cine > *:not(.cine-bars):not(.boss-intro):not(.chapter-card):not(.dmg-layer):not(.dialogue) { opacity: 0; pointer-events: none; }
 .portal-prompt { top: 150px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: var(--s2); padding: var(--s4) var(--s6); pointer-events: auto; text-align: center; background: radial-gradient(ellipse at center, rgba(20,8,30,.85), transparent 75%); }
 .portal-prompt b { font-family: var(--display); font-weight: 600; font-size: 24px; color: #e6d0ff; text-shadow: 0 0 14px rgba(170,110,255,.7); }
 .portal-prompt span { font-size: 13px; color: #d8ccb6; }
@@ -541,6 +541,34 @@ select option { background: #120e0c; }
 .death.watching { top: 110px; transform: translate(-50%, 0); width: auto; max-width: 92vw; padding: var(--s3) var(--s6); gap: var(--s2); background: radial-gradient(ellipse at center, rgba(6,4,8,.82), rgba(6,4,8,.5) 60%, transparent 80%); }
 .death.watching .dt-title, .death.watching .dt-ring, .death.watching .dt-help { display: none; }
 .dt-help { max-width: 400px; margin: var(--s2) 0 0; font-size: 12px; line-height: 1.7; color: var(--muted); text-shadow: 0 1px 3px #000; }
+/* dialogue: portrait, speaker, typed line; sits over the status HUD and never pauses the game */
+.dialogue { left: 50%; bottom: 224px; transform: translateX(-50%); width: min(660px, 94vw); display: grid; grid-template-columns: auto 1fr auto; align-items: start; gap: var(--s4); padding: var(--s3) var(--s5) var(--s3) var(--s4); pointer-events: auto; cursor: pointer; z-index: 6;
+  background: linear-gradient(180deg, rgba(14,10,12,.9), rgba(8,6,8,.94)); box-shadow: 0 18px 40px rgba(0,0,0,.6), inset 0 1px 0 color-mix(in srgb, var(--sc) 35%, transparent); border-left: 2px solid var(--sc); }
+.dialogue.in { animation: dlIn .28s ease-out both; }
+@keyframes dlIn { from { opacity: 0; transform: translate(-50%, 8px); } }
+.dl-portrait { width: 52px; height: 52px; margin: 6px 4px 0; display: flex; align-items: center; justify-content: center; transform: rotate(45deg); background: radial-gradient(circle, color-mix(in srgb, var(--sc) 28%, #1a1418), #0a0808 75%); border: 1px solid var(--sc); box-shadow: 0 0 16px color-mix(in srgb, var(--sc) 35%, transparent); }
+.dl-portrait i { display: flex; transform: rotate(-45deg); color: var(--sc); }
+.dl-portrait svg { width: 28px; height: 28px; }
+.dl-body { min-width: 0; display: flex; flex-direction: column; gap: var(--s1); }
+.dl-name { font-family: var(--display); font-size: 15px; font-weight: 600; letter-spacing: .04em; color: var(--sc); }
+.dl-text { margin: 0; min-height: 1.65em; font-size: 16px; line-height: 1.65; color: #f0e6d4; text-shadow: 0 1px 2px #000; }
+.dl-goal:empty { display: none; }
+.dl-goal { display: inline-flex; align-self: flex-start; align-items: center; gap: var(--s2); margin-top: var(--s1); padding: 3px var(--s3); font-size: 12px; color: #d8ccb6; background: rgba(255,226,160,.08); border: 1px solid rgba(255,226,160,.3); }
+.dl-goal span { font-weight: 700; letter-spacing: .12em; color: var(--gold); }
+.dl-goal b { font-weight: 600; color: #fff0d6; }
+.dialogue.waiting .dl-goal { animation: goalPulse 1.4s ease-in-out infinite; }
+@keyframes goalPulse { 50% { border-color: rgba(255,226,160,.7); box-shadow: 0 0 12px rgba(255,200,110,.3); } }
+.dl-goal.done { border-color: #7dffb0; }
+.dl-goal.done b::after { content: '  완료'; color: #7dffb0; }
+.dl-ctrl { display: flex; flex-direction: column; align-items: flex-end; justify-content: space-between; align-self: stretch; }
+.dl-next { width: 0; height: 0; border-left: 6px solid transparent; border-right: 6px solid transparent; border-top: 8px solid var(--sc); opacity: 0; margin-top: var(--s1); }
+.dialogue.typed:not(.waiting) .dl-next { opacity: .8; animation: dlNext 1s ease-in-out infinite; }
+@keyframes dlNext { 50% { transform: translateY(3px); } }
+.dl-skip { padding: 2px 0; font: 500 12px var(--font); color: var(--muted); background: none; border: 0; cursor: pointer; }
+.dl-skip:hover { color: var(--gold2); }
+.dl-skip[hidden] { display: none; }
+#hud.cine .dialogue { bottom: calc(11vh + var(--s4)); }
+@media (max-width: 800px) { .dialogue { bottom: 250px; } .dl-portrait { width: 40px; height: 40px; } .dl-portrait svg { width: 22px; height: 22px; } .dl-text { font-size: 14px; } }
 .loot-feed { right: var(--s4); bottom: 130px; display: flex; flex-direction: column; gap: var(--s1); align-items: flex-end; }
 .loot { font-size: 13px; font-weight: 400; padding: 7px 14px 7px 36px; background: linear-gradient(270deg, rgba(10,8,8,.88), rgba(10,8,8,.6) 70%, transparent); animation: slideIn .3s ease-out; transition: opacity .6s, transform .6s; }
 .loot.out { opacity: 0; transform: translateX(20px); }
