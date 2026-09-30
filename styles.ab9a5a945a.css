@@ -523,6 +523,9 @@ select option { background: #120e0c; }
 .portal-prompt b { font-family: var(--display); font-weight: 600; font-size: 24px; color: #e6d0ff; text-shadow: 0 0 14px rgba(170,110,255,.7); }
 .portal-prompt span { font-size: 13px; color: #d8ccb6; }
 .portal-prompt .btn { margin-top: var(--s2); }
+.use-prompt { position: absolute; left: 0; top: 0; display: flex; align-items: center; gap: 6px; padding: 4px 10px 4px 4px; border-radius: 999px; background: rgba(14,10,8,.78); border: 1px solid rgba(255,210,122,.45); color: #f1e4c8; font-size: 13px; pointer-events: none; white-space: nowrap; z-index: 3; }
+.use-prompt kbd { display: grid; place-items: center; width: 22px; height: 22px; border-radius: 50%; background: #ffd27a; color: #20140a; font: 700 12px/1 var(--body, sans-serif); }
+.use-prompt.hidden { display: none; }
 .cc-text { margin: 12px auto 0; max-width: 520px; font-size: 15px; line-height: 1.8; color: #e3d6c0; text-shadow: 0 2px 6px #000; }
 .boss-intro { inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; opacity: 0; background: linear-gradient(180deg, transparent 30%, rgba(0,0,0,.65) 50%, transparent 70%); transition: opacity .6s; }
 .boss-intro.show { opacity: 1; }
