@@ -518,7 +518,7 @@ select option { background: #120e0c; }
 .cine-bars i:last-child { bottom: 0; transform: translateY(100%); }
 #hud.cine .cine-bars i { transform: none; }
 #hud > * { transition: opacity .4s; }
-#hud.cine > *:not(.cine-bars):not(.boss-intro):not(.chapter-card):not(.dmg-layer):not(.dialogue) { opacity: 0; pointer-events: none; }
+#hud.cine > *:not(.cine-bars):not(.boss-intro):not(.chapter-card):not(.dmg-layer):not(.dialogue):not(.scene-hit) { opacity: 0; pointer-events: none; }
 .portal-prompt { top: 150px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: var(--s2); padding: var(--s4) var(--s6); pointer-events: auto; text-align: center; background: radial-gradient(ellipse at center, rgba(20,8,30,.85), transparent 75%); }
 .portal-prompt b { font-family: var(--display); font-weight: 600; font-size: 24px; color: #e6d0ff; text-shadow: 0 0 14px rgba(170,110,255,.7); }
 .portal-prompt span { font-size: 13px; color: #d8ccb6; }
@@ -896,3 +896,20 @@ img.art { display: block; width: 100%; height: 100%; object-fit: contain; pointe
 /* Silenced: skill slots dim, a small note over them */
 .skills.silenced .slot:not(.util) { filter: grayscale(.85) brightness(.55); }
 .skills.silenced::before { content: '침묵'; position: absolute; left: 50%; top: -22px; transform: translateX(-50%); padding: 2px 10px; font-size: 12px; font-weight: 700; color: #e0d0ff; background: rgba(40,20,70,.85); border: 1px solid rgba(180,144,255,.6); }
+
+/* Story scenes (src/scene.js): subtitles in the lower letterbox, the speaker's name over the line */
+.scene-hit { position: fixed !important; inset: 0; z-index: 5; cursor: pointer; background: transparent; }
+.dialogue.scene { bottom: 2.2vh; width: min(920px, 94vw); grid-template-columns: 1fr; justify-items: center; gap: 6px; padding: var(--s2) var(--s5) var(--s3); background: none; border: 0; box-shadow: none; text-align: center; z-index: 7; }
+#hud.cine .dialogue.scene { bottom: 2.2vh; }
+.dialogue.scene .dl-portrait { display: none; }
+.dialogue.scene .dl-body { align-items: center; gap: 6px; }
+.dialogue.scene .dl-name { display: inline-flex; align-items: center; gap: 12px; font-size: 16px; letter-spacing: .12em; text-shadow: 0 0 14px color-mix(in srgb, var(--sc) 60%, transparent), 0 1px 3px #000; }
+.dialogue.scene .dl-name::before, .dialogue.scene .dl-name::after { content: ''; width: 46px; height: 1px; background: linear-gradient(90deg, transparent, var(--sc)); }
+.dialogue.scene .dl-name::after { background: linear-gradient(90deg, var(--sc), transparent); }
+.dialogue.scene .dl-text { font-size: 20px; line-height: 1.6; color: #fff6e6; text-shadow: 0 2px 6px #000, 0 0 2px #000; min-height: 1.6em; }
+.dialogue.scene .dl-ctrl { position: fixed; right: 3vw; bottom: 3vh; flex-direction: row; align-items: center; gap: var(--s4); }
+.dialogue.scene .dl-next { margin: 0; }
+.dialogue.scene .dl-skip { font-size: 13px; color: #cfc4b0; }
+.dialogue.scene.in { animation: sceneIn .35s ease-out both; }
+@keyframes sceneIn { from { opacity: 0; transform: translate(-50%, 6px); } to { opacity: 1; transform: translate(-50%, 0); } }
+@media (max-width: 800px) { .dialogue.scene .dl-text { font-size: 16px; } .dialogue.scene .dl-ctrl { position: absolute; right: 0; bottom: auto; top: -30px; } }
