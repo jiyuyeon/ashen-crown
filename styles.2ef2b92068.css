@@ -880,3 +880,16 @@ select option { background: #120e0c; }
 .jm-panel.quiet { grid-template-columns: 1fr; text-align: center; padding: var(--s3) var(--s5); }
 .jm-panel.quiet p { margin: 0; font-size: 14px; color: #d8ccb6; }
 @media (max-width: 600px) { .jm-head h2 { font-size: 21px; } .jm-label b { font-size: 13px; } .jm-label span { display: none; } .jm-panel { gap: var(--s3); padding: var(--s3); } .jm-body p { font-size: 14px; } .jm-row .hint { display: none; } .jm-row { justify-content: flex-end; } }
+
+/* Painted item icons (src/ui/art.js) */
+img.art { display: block; width: 100%; height: 100%; object-fit: contain; pointer-events: none; user-select: none; -webkit-user-drag: none; }
+.islot .ig img.art { width: 80%; height: 80%; margin: auto; filter: drop-shadow(0 2px 2px rgba(0,0,0,.65)); }
+.loot .lg img.art { display: inline-block; width: 22px; height: 22px; margin-right: 6px; vertical-align: -6px; }
+.gi i img.art { width: 30px; height: 30px; }
+.gi-ic img.art { width: 40px; height: 40px; filter: drop-shadow(0 2px 2px rgba(0,0,0,.6)); }
+.slot > img.pot-art { width: 40px; height: 40px; filter: drop-shadow(0 2px 3px rgba(0,0,0,.75)); }
+.slot.empty > img.pot-art { filter: grayscale(1) brightness(.45); }
+.fg-cost img.art { display: inline-block; width: 18px; height: 18px; vertical-align: -4px; }
+.anvil.has .an-slot .ig img.art { width: 80px; height: 80px; }
+.sh-note { margin: var(--s2) 0 0; font-size: 11px; color: #8a8174; }
+.drag-ghost img.art { width: 42px; height: 42px; }
