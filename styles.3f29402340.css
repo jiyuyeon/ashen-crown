@@ -67,7 +67,7 @@ select option { background: #120e0c; }
 
 /* ---------- logo ---------- */
 .logo { display: flex; flex-direction: column; line-height: 1; }
-.logo-en { font-family: var(--display); font-weight: 700; font-size: clamp(56px, 5.6vw, 80px); letter-spacing: .12em; margin-right: -.12em; white-space: nowrap; background: var(--gild); -webkit-background-clip: text; background-clip: text; color: transparent; filter: drop-shadow(0 0 22px rgba(255,130,50,.45)) drop-shadow(0 4px 3px #000); padding: var(--s1) 0; }
+.logo-en { font-family: var(--display); font-weight: 600; font-size: clamp(56px, 5.6vw, 80px); letter-spacing: .08em; margin-right: -.08em; white-space: nowrap; background: var(--gild); -webkit-background-clip: text; background-clip: text; color: transparent; filter: drop-shadow(0 0 22px rgba(255,130,50,.45)) drop-shadow(0 4px 3px #000); padding: var(--s1) 0; }
 .logo-ko { font-family: var(--display); font-weight: 500; font-size: clamp(14px, 1.4vw, 17px); letter-spacing: .9em; margin-right: -.9em; color: var(--gold); margin-top: var(--s3); padding-left: .2em; text-shadow: 0 0 12px rgba(227,184,102,.4); }
 .logo::after { content: ''; height: 1px; margin-top: var(--s4); background: linear-gradient(90deg, var(--gold), rgba(227,184,102,.25) 60%, transparent); }
 
