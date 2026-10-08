@@ -232,6 +232,7 @@ select option { background: #120e0c; }
 .lobby-title h2 { margin: 0; font-family: var(--display); font-weight: 600; font-size: 38px; letter-spacing: .06em; background: var(--gild); -webkit-background-clip: text; background-clip: text; color: transparent; filter: drop-shadow(0 2px 2px #000); }
 .lobby .codebox b { font-size: 32px; padding-left: 0; }
 .lobby .note { margin: 0; font-size: 13px; line-height: 1.7; }
+.lobby-warn { margin: var(--s2) 0 0; text-align: center; font-size: 13px; color: #e8a25f; }
 .lobby .row { margin-top: 0; justify-content: stretch; }
 .lobby .row .btn { flex: 1; }
 .chat-slot { flex: none; height: 200px; display: flex; }
